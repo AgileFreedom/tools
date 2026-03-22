@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What does 1% better every week look like for your business?</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy: #142850; --navy-mid: #1e3a6e; --teal: #50788c; --teal-light: #7aaabb;
+  --teal-pale: #e6f0f3; --teal-pale2: #cfe3e9; --silver: #f4f5f7; --silver-2: #e8eaed;
+  --border: rgba(20,40,80,0.12); --text: #142850; --text-mid: #3a5070; --text-soft: #7a8fa8;
+  --white: #ffffff; --sans: system-ui, -apple-system, 'Segoe UI', sans-serif; --radius: 8px;
+}
+body { font-family: var(--sans); background: var(--white); color: var(--text); padding: 2.5rem 1.5rem; max-width: 860px; margin: 0 auto; line-height: 1.5; }
+h1 { font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 700; line-height: 1.2; color: var(--navy); margin-bottom: 0.75rem; max-width: 640px; }
+h1 em { font-style: normal; color: var(--teal); }
+.subtitle { font-size: 15px; color: var(--text-mid); line-height: 1.7; max-width: 600px; margin-bottom: 0.85rem; }
+.af-quote { padding: 10px 14px; border-left: 3px solid var(--teal); background: var(--teal-pale); border-radius: 0 6px 6px 0; margin-bottom: 2rem; max-width: 560px; }
+.af-quote-text { font-size: 13px; color: var(--teal); font-style: italic; line-height: 1.55; }
+.af-quote-attr { font-size: 11px; color: var(--teal-light); margin-top: 3px; }
+.metrics-hero { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 8px; margin-bottom: 8px; }
+.metrics-secondary { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 1.25rem; }
+.metric-hero { background: var(--navy); border-radius: 10px; padding: 20px 22px; }
+.metric-hero-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.55); margin-bottom: 6px; font-weight: 500; }
+.metric-hero-value { font-size: 3.2rem; font-weight: 700; line-height: 1; color: #fff; transition: all 0.3s ease; }
+.metric-hero-value.teal { color: #7aaabb; }
+.metric { background: var(--silver); border-radius: var(--radius); padding: 13px 16px; }
+.metric-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-soft); margin-bottom: 5px; font-weight: 500; }
+.metric-value { font-size: 1.4rem; font-weight: 600; color: var(--navy); transition: all 0.3s ease; }
+.metric-value.teal { color: var(--teal); }
+.metrics-hero.ai-on .metric-hero { background: var(--teal); transition: background 0.4s ease; }
+.metrics-hero.ai-on .metric-hero-label { color: rgba(255,255,255,0.7); transition: color 0.4s ease; }
+.metrics-hero.ai-on .metric-hero-value { color: #fff; transition: color 0.4s ease; }
+.metrics-hero.ai-on .metric-hero-value.teal { color: #e0f2ec; }
+.metrics-secondary.ai-on .metric { background: var(--teal-pale); transition: background 0.4s ease; }
+.metrics-secondary.ai-on .metric-label { color: var(--teal); transition: color 0.4s ease; }
+.ai-row { display: flex; align-items: flex-start; justify-content: space-between; background: var(--teal-pale); border: 1px solid var(--teal-pale2); border-radius: 10px; padding: 13px 18px; margin-bottom: 1.5rem; gap: 12px; }
+.ai-info { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.ai-label-row { display: flex; align-items: center; gap: 6px; }
+.ai-label { font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--teal); font-weight: 600; }
+.ai-info-btn { width: 16px; height: 16px; border-radius: 50%; background: var(--teal); color: #fff; font-size: 10px; font-weight: 700; border: none; cursor: pointer; flex-shrink: 0; font-family: var(--sans); line-height: 16px; text-align: center; padding: 0; position: relative; }
+.ai-tooltip { display: none; position: absolute; top: 22px; left: 0; width: 270px; background: var(--navy); color: rgba(255,255,255,0.9); font-size: 11.5px; line-height: 1.6; padding: 10px 13px; border-radius: 6px; z-index: 20; font-weight: 400; letter-spacing: 0; text-transform: none; text-align: left; }
+.ai-info-btn:hover .ai-tooltip, .ai-info-btn:focus .ai-tooltip { display: block; }
+.ai-desc { font-size: 12.5px; color: var(--text-mid); line-height: 1.4; }
+.ai-desc strong { color: var(--teal); font-weight: 700; }
+.ai-toggle-wrap { display: flex; align-items: center; gap: 10px; flex-shrink: 0; padding-top: 2px; }
+.ai-state { font-size: 12px; font-weight: 600; min-width: 24px; text-align: right; color: var(--text-soft); transition: color 0.2s; }
+.ai-state.on { color: var(--teal); }
+.toggle-pill { position: relative; width: 44px; height: 24px; cursor: pointer; flex-shrink: 0; }
+.toggle-pill input { opacity: 0; width: 0; height: 0; position: absolute; }
+.toggle-track { position: absolute; inset: 0; border-radius: 12px; background: rgba(20,40,80,0.2); transition: background 0.2s; }
+.toggle-pill input:checked + .toggle-track { background: var(--teal); }
+.toggle-thumb { position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.25); transition: transform 0.2s; }
+.toggle-pill input:checked ~ .toggle-thumb { transform: translateX(20px); }
+.controls { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 2.5rem; margin-bottom: 1.75rem; }
+.ctrl { display: flex; flex-direction: column; gap: 8px; }
+.ctrl-head { display: flex; justify-content: space-between; align-items: baseline; }
+.ctrl-name { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-soft); font-weight: 600; }
+.ctrl-val { font-size: 14px; font-weight: 600; color: var(--navy); }
+.freq-btns { display: flex; gap: 5px; }
+.freq-btn { flex: 1; font-family: inherit; font-size: 11.5px; font-weight: 500; padding: 8px 2px; border-radius: 6px; border: 1.5px solid var(--border); background: var(--white); color: var(--text-mid); cursor: pointer; transition: all 0.15s; text-align: center; }
+.freq-btn:hover { border-color: var(--teal); color: var(--teal); }
+.freq-btn.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+.range-wrap { position: relative; padding-bottom: 28px; }
+input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 3px; background: var(--silver-2); border-radius: 2px; outline: none; cursor: pointer; display: block; }
+input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 16px; height: 16px; border-radius: 50%; background: var(--navy); border: 2.5px solid #fff; box-shadow: 0 0 0 1px var(--navy); transition: transform 0.15s; }
+input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.2); }
+.range-ticks { position: relative; height: 20px; margin-top: 5px; }
+.range-tick { position: absolute; transform: translateX(-50%); font-size: 12px; color: var(--text-soft); white-space: nowrap; line-height: 1; }
+.chart-wrap { position: relative; width: 100%; height: 280px; margin-bottom: 1.5rem; }
+.milestones { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 1.5rem; }
+.ms { border-radius: var(--radius); padding: 13px 15px; border: 1px solid; }
+.ms.q1 { background: var(--silver); border-color: var(--silver-2); }
+.ms.q2 { background: var(--teal-pale); border-color: var(--teal-pale2); }
+.ms.q3 { background: var(--navy); border-color: var(--navy); }
+.ms-period { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 5px; font-weight: 600; }
+.ms.q1 .ms-period, .ms.q2 .ms-period { color: var(--text-soft); }
+.ms.q3 .ms-period { color: rgba(255,255,255,0.55); }
+.ms-val { font-size: 1.5rem; font-weight: 700; line-height: 1.1; }
+.ms.q1 .ms-val, .ms.q2 .ms-val { color: var(--navy); }
+.ms.q3 .ms-val { color: #fff; }
+.ms-sub { font-size: 11px; margin-top: 2px; }
+.ms.q1 .ms-sub, .ms.q2 .ms-sub { color: var(--text-soft); }
+.ms.q3 .ms-sub { color: rgba(255,255,255,0.6); }
+.insight { border-left: 3px solid var(--teal); background: var(--teal-pale); border-radius: 0 var(--radius) var(--radius) 0; padding: 13px 18px; font-size: 13.5px; color: var(--text-mid); line-height: 1.65; margin-bottom: 1.5rem; }
+.insight strong { color: var(--navy); font-weight: 600; }
+.cta { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding: 16px 20px; background: var(--navy); border-radius: 10px; margin-bottom: 1.25rem; }
+.cta-text { font-size: 13.5px; color: rgba(255,255,255,0.85); line-height: 1.5; }
+.cta-text strong { color: #fff; }
+.cta-btn { font-family: inherit; font-size: 13px; font-weight: 600; padding: 9px 20px; border-radius: 6px; border: none; background: #fff; color: var(--navy); cursor: pointer; letter-spacing: 0.02em; transition: all 0.15s; white-space: nowrap; text-decoration: none; display: inline-block; }
+.cta-btn:hover { background: var(--teal-pale2); }
+.footer-note { font-size: 11.5px; color: var(--text-soft); line-height: 1.65; padding-top: 1rem; border-top: 1px solid var(--border); font-style: italic; }
+.projection-stmt { background: var(--navy); border-radius: 12px; padding: 22px 26px; margin-bottom: 10px; line-height: 1.75; font-size: clamp(1rem, 2.4vw, 1.18rem); color: rgba(255,255,255,0.75); font-weight: 400; transition: background 0.4s ease; }
+.projection-stmt.ai-on { background: var(--teal); }
+.proj-val { color: #fff; font-weight: 800; font-size: 1.25em; }
+.proj-val.highlight { color: #7eecd0; }
+.proj-label { color: rgba(255,255,255,0.55); font-size: 0.78em; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-top: -2px; margin-bottom: 6px; }
+@media (max-width: 540px) {
+  .controls, .metrics-hero, .metrics-secondary { grid-template-columns: 1fr; }
+  .milestones { grid-template-columns: 1fr; }
+  .ctrl { grid-column: auto !important; }
+  .ai-tooltip { width: 210px; }
+}
+</style>
+</head>
+<body>
+
+<h1>What does 1% better every week<br>actually look like <em>for your business?</em></h1>
+
+<p class="subtitle">Most businesses wait for the big breakthrough. The ones that consistently outperform don't. They commit to small, measurable improvements - every sprint, every week - and let time and consistency do the compounding. Commitment gets you started. <strong>Consistency gets you there.</strong></p>
+
+<p class="subtitle">Adjust the model below to your organisation's context and see what structured, patient, data-driven improvement delivers over a coaching and consultancy engagement.</p>
+
+<div class="af-quote">
+  <div class="af-quote-text">"In God we trust. All others must bring data."</div>
+  <div class="af-quote-attr">- W. Edwards Deming, father of continuous improvement</div>
+</div>
+
+<div class="projection-stmt" id="projection-stmt">
+  By consistently engaging with leadership consultancy that delivers <span class="proj-val" id="proj-rate">1.0%</span> improvement per <span class="proj-val" id="proj-freq">week</span>, your business can expect an overall improvement of <span class="proj-val highlight" id="proj-total">+180%</span> across revenue, profitability, productivity, team morale, and operational efficiency - over a <span class="proj-val" id="proj-months">18-month</span> engagement.
+</div>
+
+<div class="metrics-hero">
+  <div class="metric-hero">
+    <div class="metric-hero-label">Total improvement</div>
+    <div class="metric-hero-value" id="m-total">+180%</div>
+  </div>
+  <div class="metric-hero">
+    <div class="metric-hero-label">Capability multiplier</div>
+    <div class="metric-hero-value teal" id="m-multiplier">2.8x</div>
+  </div>
+</div>
+<div class="metrics-secondary">
+  <div class="metric">
+    <div class="metric-label">Improvement cycles</div>
+    <div class="metric-value" id="m-cycles">78 weeks</div>
+  </div>
+  <div class="metric">
+    <div class="metric-label">With AI acceleration</div>
+    <div class="metric-value teal" id="m-ai-total">Toggle on to see</div>
+  </div>
+</div>
+
+<div class="ai-row">
+  <div class="ai-info">
+    <div class="ai-label-row">
+      <span class="ai-label">AI acceleration</span>
+      <button class="ai-info-btn" tabindex="0" aria-label="More information about AI acceleration">i
+        <span class="ai-tooltip">Research by McKinsey, Accenture and MIT Sloan consistently shows AI-enabled teams improve cycle speed and output quality by 25-40%. The 30% figure used here is a conservative mid-range estimate - reflecting faster retrospectives, AI-assisted waste identification, automated reporting, and reduced friction between improvement cycles.</span>
+      </button>
+    </div>
+    <span class="ai-desc">Faster learning loops, reduced waste, automated insight generation - boosts each cycle's improvement rate by <strong>+30%</strong></span>
+  </div>
+  <div class="ai-toggle-wrap">
+    <span class="ai-state" id="ai-state">Off</span>
+    <label class="toggle-pill">
+      <input type="checkbox" id="ai-toggle">
+      <span class="toggle-track"></span>
+      <span class="toggle-thumb"></span>
+    </label>
+  </div>
+</div>
+
+<div class="controls">
+  <div class="ctrl">
+    <div class="ctrl-head">
+      <span class="ctrl-name">Improvement per cycle</span>
+      <span class="ctrl-val" id="v-rate">1.0%</span>
+    </div>
+    <div class="range-wrap">
+      <input type="range" id="rate" min="0" max="10" step="0.5" value="1">
+      <div class="range-ticks" id="rate-ticks"></div>
+    </div>
+  </div>
+
+  <div class="ctrl">
+    <div class="ctrl-head">
+      <span class="ctrl-name">Cycle frequency</span>
+    </div>
+    <div class="freq-btns">
+      <button class="freq-btn" data-fi="0">Daily</button>
+      <button class="freq-btn active" data-fi="1">Weekly</button>
+      <button class="freq-btn" data-fi="2">Monthly</button>
+      <button class="freq-btn" data-fi="3">Quarterly</button>
+    </div>
+  </div>
+
+  <div class="ctrl" style="grid-column: 1 / -1;">
+    <div class="ctrl-head">
+      <span class="ctrl-name">Project length</span>
+      <span class="ctrl-val" id="v-months">18 months</span>
+    </div>
+    <div class="range-wrap">
+      <input type="range" id="months" min="3" max="36" step="1" value="18">
+      <div class="range-ticks" id="months-ticks"></div>
+    </div>
+  </div>
+</div>
+
+<div class="chart-wrap"><canvas id="chart"></canvas></div>
+<div class="milestones" id="milestones"></div>
+<div class="insight" id="insight"></div>
+
+<div class="cta">
+  <div class="cta-text"><strong>Ready to build this into your organisation?</strong><br>Agile Freedom designs and coaches the exact programme this model reflects.</div>
+  <a class="cta-btn" href="https://www.agilefreedom.co.uk" target="_blank">Get in touch &#8599;</a>
+</div>
+
+<p class="footer-note">Modelled as compound growth: each cycle's improvement is applied to the current capability level, not the original baseline. AI acceleration applies a conservative 30% boost to each cycle's improvement rate - reflecting faster retrospectives, AI-assisted waste identification, and reduced friction in delivery. For illustrative purposes only. &copy; 2026 Agile Freedom Consultancy &middot; agilefreedom.co.uk</p>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const freqPerYear = [365, 52, 12, 4];
+const freqSingular = ['days', 'weeks', 'months', 'quarters'];
+const freqCycleLabel = ['daily', 'weekly', 'monthly', 'quarterly'];
+const AI_BOOST = 30;
+let selectedFi = 1, myChart;
+
+function buildTicks(containerId, min, max, ticks) {
+  const el = document.getElementById(containerId);
+  el.innerHTML = '';
+  ticks.forEach(function(t) {
+    const pct = (t.val - min) / (max - min) * 100;
+    const span = document.createElement('span');
+    span.className = 'range-tick';
+    span.style.left = pct + '%';
+    span.textContent = t.label;
+    el.appendChild(span);
+  });
+}
+
+buildTicks('rate-ticks', 0, 10, [
+  { val: 0,   label: '0%'   },
+  { val: 2.5, label: '2.5%' },
+  { val: 5,   label: '5%'   },
+  { val: 7.5, label: '7.5%' },
+  { val: 10,  label: '10%'  }
+]);
+
+buildTicks('months-ticks', 3, 36, [
+  { val: 3,  label: '3mo'  },
+  { val: 6,  label: '6mo'  },
+  { val: 12, label: '12mo' },
+  { val: 18, label: '18mo' },
+  { val: 24, label: '24mo' },
+  { val: 36, label: '36mo' }
+]);
+
+function buildData(rate, fi, months, aiOn) {
+  const cpy = freqPerYear[fi];
+  const totalCycles = Math.round((months / 12) * cpy);
+  const effRate = (rate / 100) * (aiOn ? (1 + AI_BOOST / 100) : 1);
+  const labels = [], compound = [];
+  for (var c = 0; c <= totalCycles; c++) {
+    var mIn = (c / cpy) * 12;
+    if (c === 0) {
+      labels.push('Start');
+    } else {
+      var m = Math.round(mIn);
+      var show = (c % Math.max(1, Math.round(totalCycles / 8)) === 0) || c === totalCycles;
+      labels.push(show ? (m < 12 ? 'Mo ' + m : (m / 12).toFixed(m % 12 === 0 ? 0 : 1) + 'y') : '');
+    }
+    compound.push(parseFloat((Math.pow(1 + effRate, c) * 100).toFixed(2)));
+  }
+  return { labels: labels, compound: compound, totalCycles: totalCycles };
+}
+
+function fmtX(v) { return (v / 100).toFixed(2) + 'x'; }
+function fmtPct(v) { return '+' + Math.round(v - 100) + '%'; }
+function msAt(arr, n, f) { return arr[Math.min(Math.round(f * n), arr.length - 1)]; }
+
+function update() {
+  var rate = +document.getElementById('rate').value;
+  var months = +document.getElementById('months').value;
+  var aiOn = document.getElementById('ai-toggle').checked;
+  var fi = selectedFi;
+
+  document.getElementById('v-rate').textContent = rate.toFixed(1) + '%';
+  document.getElementById('v-months').textContent = months + ' month' + (months !== 1 ? 's' : '');
+
+  var se = document.getElementById('ai-state');
+  se.textContent = aiOn ? 'On' : 'Off';
+  se.className = 'ai-state' + (aiOn ? ' on' : '');
+
+  var base = buildData(rate, fi, months, false);
+  var withAI = buildData(rate, fi, months, true);
+  var finalC = base.compound[base.compound.length - 1];
+  var finalCAI = withAI.compound[withAI.compound.length - 1];
+  var dispC = aiOn ? withAI.compound : base.compound;
+  var finalD = aiOn ? finalCAI : finalC;
+  var totalCycles = base.totalCycles;
+
+  document.getElementById('m-total').textContent = fmtPct(finalD);
+  document.getElementById('m-multiplier').textContent = fmtX(finalD);
+  document.getElementById('m-cycles').textContent = totalCycles + ' ' + freqSingular[fi];
+  document.getElementById('m-ai-total').textContent = aiOn ? fmtPct(finalCAI) : 'Toggle on to see';
+  document.querySelector('.metrics-hero').classList.toggle('ai-on', aiOn);
+  document.querySelector('.metrics-secondary').classList.toggle('ai-on', aiOn);
+
+  var freqWord = ['day', 'week', 'month', 'quarter'];
+  var monthsText = months < 12 ? months + '-month' : (months % 12 === 0 ? (months / 12) + '-year' : months + '-month');
+  document.getElementById('proj-rate').textContent = rate.toFixed(1) + '%';
+  document.getElementById('proj-freq').textContent = freqWord[fi];
+  document.getElementById('proj-total').textContent = fmtPct(finalD);
+  document.getElementById('proj-months').textContent = monthsText;
+  document.getElementById('projection-stmt').classList.toggle('ai-on', aiOn);
+
+  var fracs = [1/3, 2/3, 1];
+  var classes = ['q1', 'q2', 'q3'];
+  var names = ['First third', 'Two thirds', 'Project end'];
+  document.getElementById('milestones').innerHTML = fracs.map(function(f, i) {
+    var v = msAt(dispC, totalCycles, f);
+    var m = Math.round(f * months);
+    return '<div class="ms ' + classes[i] + '">'
+      + '<div class="ms-period">' + names[i] + ' · Mo ' + m + '</div>'
+      + '<div class="ms-val">' + fmtX(v) + '</div>'
+      + '<div class="ms-sub">' + fmtPct(v) + ' above baseline</div>'
+      + '</div>';
+  }).join('');
+
+  var pNote = months >= 18
+    ? 'The results compound most dramatically in the final stretch - patience and consistency are the strategy.'
+    : 'Extend the engagement to 18+ months to see how dramatically the final phase compounds.';
+  var aiNote = aiOn
+    ? ' With AI acceleration active, that jumps to <strong>' + fmtPct(finalCAI) + '</strong> - the same effort, amplified.'
+    : '';
+
+  document.getElementById('insight').innerHTML =
+    '<strong>' + totalCycles + ' ' + freqCycleLabel[fi] + ' cycles</strong> at just '
+    + '<strong>' + rate.toFixed(1) + '% improvement per cycle</strong> compounds your organisation\'s capability to '
+    + '<strong>' + fmtX(finalD) + ' its starting point</strong> - a '
+    + '<strong>' + fmtPct(finalD) + '</strong> total gain.' + aiNote + ' ' + pNote;
+
+  var datasets = [{
+    label: 'Compounded improvement',
+    data: dispC,
+    borderColor: '#142850',
+    backgroundColor: 'rgba(20,40,80,0.07)',
+    borderWidth: 2,
+    fill: true,
+    tension: 0.4,
+    pointRadius: 0,
+    pointHoverRadius: 5
+  }];
+
+  if (aiOn) {
+    datasets.push({
+      label: 'Without AI acceleration',
+      data: base.compound,
+      borderColor: '#7aaabb',
+      backgroundColor: 'transparent',
+      borderWidth: 1.5,
+      borderDash: [5, 4],
+      fill: false,
+      tension: 0.4,
+      pointRadius: 0,
+      pointHoverRadius: 4
+    });
+  }
+
+  if (myChart) {
+    myChart.data.labels = base.labels;
+    myChart.data.datasets = datasets;
+    myChart.update('none');
+  } else {
+    myChart = new Chart(document.getElementById('chart'), {
+      type: 'line',
+      data: { labels: base.labels, datasets: datasets },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+          legend: { display: false },
+          tooltip: { callbacks: { label: function(ctx) { return ' ' + ctx.dataset.label + ': ' + ctx.raw.toFixed(1) + '% of baseline'; } } }
+        },
+        scales: {
+          x: { ticks: { color: '#7a8fa8', font: { size: 11 }, autoSkip: true, maxTicksLimit: 9, maxRotation: 0 }, grid: { display: false } },
+          y: { ticks: { color: '#7a8fa8', font: { size: 11 }, callback: function(v) { return v + '%'; } }, grid: { color: 'rgba(20,40,80,0.06)' } }
+        }
+      }
+    });
+  }
+}
+
+document.querySelectorAll('.freq-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.freq-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    selectedFi = +btn.dataset.fi;
+    update();
+  });
+});
+
+document.getElementById('ai-toggle').addEventListener('change', update);
+document.getElementById('rate').addEventListener('input', update);
+document.getElementById('months').addEventListener('input', update);
+update();
+</script>
+</body>
+</html>
