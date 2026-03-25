@@ -3,400 +3,860 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>What does 1% better every week look like for your business?</title>
+<title>LinkedIn Profile Optimiser – Agile Freedom Consulting</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --navy: #142850; --navy-mid: #1e3a6e; --teal: #50788c; --teal-light: #7aaabb;
-  --teal-pale: #e6f0f3; --teal-pale2: #cfe3e9; --silver: #f4f5f7; --silver-2: #e8eaed;
-  --border: rgba(20,40,80,0.12); --text: #142850; --text-mid: #3a5070; --text-soft: #7a8fa8;
-  --white: #ffffff; --sans: system-ui, -apple-system, 'Segoe UI', sans-serif; --radius: 8px;
+  --navy:#142850; --navy-mid:#1e3a6e; --teal:#50788c; --teal-light:#7aaabb;
+  --teal-pale:#e6f0f3; --teal-pale2:#cfe3e9; --silver:#f4f5f7; --silver-2:#e8eaed;
+  --border:rgba(20,40,80,0.13); --text:#142850; --text-mid:#3a5070; --text-soft:#7a8fa8;
+  --white:#ffffff; --green:#1a6e3a; --green-bg:#eaf5ee; --red:#b83232; --red-bg:#fdecea;
+  --gold:#c9993a; --gold-bg:#fdf6e8;
+  --sans:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --radius:8px;
 }
-body { font-family: var(--sans); background: #F9F9F9; color: var(--text); padding: 2.5rem 1.5rem; max-width: 860px; margin: 0 auto; line-height: 1.5; }
-h1 { font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 700; line-height: 1.2; color: var(--navy); margin-bottom: 0.75rem; max-width: 640px; }
-h1 em { font-style: normal; color: var(--teal); }
-.subtitle { font-size: 15px; color: var(--text-mid); line-height: 1.7; max-width: 600px; margin-bottom: 0.85rem; }
-.af-quote { padding: 10px 14px; border-left: 3px solid var(--teal); background: var(--teal-pale); border-radius: 0 6px 6px 0; margin-bottom: 2rem; max-width: 560px; }
-.af-quote-text { font-size: 13px; color: var(--teal); font-style: italic; line-height: 1.55; }
-.af-quote-attr { font-size: 11px; color: var(--teal-light); margin-top: 3px; }
-.metrics-hero { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 8px; margin-bottom: 8px; }
-.metrics-secondary { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 1.25rem; }
-.metric-hero { background: var(--navy); border-radius: 10px; padding: 20px 22px; }
-.metric-hero-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.55); margin-bottom: 6px; font-weight: 500; }
-.metric-hero-value { font-size: 3.2rem; font-weight: 700; line-height: 1; color: #fff; transition: all 0.3s ease; }
-.metric-hero-value.teal { color: #7aaabb; }
-.metric { background: var(--silver); border-radius: var(--radius); padding: 13px 16px; }
-.metric-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-soft); margin-bottom: 5px; font-weight: 500; }
-.metric-value { font-size: 1.4rem; font-weight: 600; color: var(--navy); transition: all 0.3s ease; }
-.metric-value.teal { color: var(--teal); }
-.metrics-hero.ai-on .metric-hero { background: var(--teal); transition: background 0.4s ease; }
-.metrics-hero.ai-on .metric-hero-label { color: rgba(255,255,255,0.7); transition: color 0.4s ease; }
-.metrics-hero.ai-on .metric-hero-value { color: #fff; transition: color 0.4s ease; }
-.metrics-hero.ai-on .metric-hero-value.teal { color: #e0f2ec; }
-.metrics-secondary.ai-on .metric { background: var(--teal-pale); transition: background 0.4s ease; }
-.metrics-secondary.ai-on .metric-label { color: var(--teal); transition: color 0.4s ease; }
-.ai-row { display: flex; align-items: flex-start; justify-content: space-between; background: var(--teal-pale); border: 1px solid var(--teal-pale2); border-radius: 10px; padding: 13px 18px; margin-bottom: 1.5rem; gap: 12px; }
-.ai-info { display: flex; flex-direction: column; gap: 4px; flex: 1; }
-.ai-label-row { display: flex; align-items: center; gap: 6px; }
-.ai-label { font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--teal); font-weight: 600; }
-.ai-info-btn { width: 16px; height: 16px; border-radius: 50%; background: var(--teal); color: #fff; font-size: 10px; font-weight: 700; border: none; cursor: pointer; flex-shrink: 0; font-family: var(--sans); line-height: 16px; text-align: center; padding: 0; position: relative; }
-.ai-tooltip { display: none; position: absolute; top: 22px; left: 0; width: 270px; background: var(--navy); color: rgba(255,255,255,0.9); font-size: 11.5px; line-height: 1.6; padding: 10px 13px; border-radius: 6px; z-index: 20; font-weight: 400; letter-spacing: 0; text-transform: none; text-align: left; }
-.ai-info-btn:hover .ai-tooltip, .ai-info-btn:focus .ai-tooltip { display: block; }
-.ai-desc { font-size: 12.5px; color: var(--text-mid); line-height: 1.4; }
-.ai-desc strong { color: var(--teal); font-weight: 700; }
-.ai-toggle-wrap { display: flex; align-items: center; gap: 10px; flex-shrink: 0; padding-top: 2px; }
-.ai-state { font-size: 12px; font-weight: 600; min-width: 24px; text-align: right; color: var(--text-soft); transition: color 0.2s; }
-.ai-state.on { color: var(--teal); }
-.toggle-pill { position: relative; width: 44px; height: 24px; cursor: pointer; flex-shrink: 0; }
-.toggle-pill input { opacity: 0; width: 0; height: 0; position: absolute; }
-.toggle-track { position: absolute; inset: 0; border-radius: 12px; background: rgba(20,40,80,0.2); transition: background 0.2s; }
-.toggle-pill input:checked + .toggle-track { background: var(--teal); }
-.toggle-thumb { position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.25); transition: transform 0.2s; }
-.toggle-pill input:checked ~ .toggle-thumb { transform: translateX(20px); }
-.controls { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 2.5rem; margin-bottom: 1.75rem; }
-.ctrl { display: flex; flex-direction: column; gap: 8px; }
-.ctrl-head { display: flex; justify-content: space-between; align-items: baseline; }
-.ctrl-name { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-soft); font-weight: 600; }
-.ctrl-val { font-size: 14px; font-weight: 600; color: var(--navy); }
-.freq-btns { display: flex; gap: 5px; }
-.freq-btn { flex: 1; font-family: inherit; font-size: 11.5px; font-weight: 500; padding: 8px 2px; border-radius: 6px; border: 1.5px solid var(--border); background: var(--white); color: var(--text-mid); cursor: pointer; transition: all 0.15s; text-align: center; }
-.freq-btn:hover { border-color: var(--teal); color: var(--teal); }
-.freq-btn.active { background: var(--navy); color: #fff; border-color: var(--navy); }
-.range-wrap { position: relative; padding-bottom: 28px; }
-input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 3px; background: var(--silver-2); border-radius: 2px; outline: none; cursor: pointer; display: block; }
-input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 16px; height: 16px; border-radius: 50%; background: var(--navy); border: 2.5px solid #fff; box-shadow: 0 0 0 1px var(--navy); transition: transform 0.15s; }
-input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.2); }
-.range-ticks { position: relative; height: 20px; margin-top: 5px; }
-.range-tick { position: absolute; transform: translateX(-50%); font-size: 12px; color: var(--text-soft); white-space: nowrap; line-height: 1; }
-.chart-wrap { position: relative; width: 100%; height: 280px; margin-bottom: 1.5rem; }
-.milestones { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 1.5rem; }
-.ms { border-radius: var(--radius); padding: 13px 15px; border: 1px solid; }
-.ms.q1 { background: var(--silver); border-color: var(--silver-2); }
-.ms.q2 { background: var(--teal-pale); border-color: var(--teal-pale2); }
-.ms.q3 { background: var(--navy); border-color: var(--navy); }
-.ms-period { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 5px; font-weight: 600; }
-.ms.q1 .ms-period, .ms.q2 .ms-period { color: var(--text-soft); }
-.ms.q3 .ms-period { color: rgba(255,255,255,0.55); }
-.ms-val { font-size: 1.5rem; font-weight: 700; line-height: 1.1; }
-.ms.q1 .ms-val, .ms.q2 .ms-val { color: var(--navy); }
-.ms.q3 .ms-val { color: #fff; }
-.ms-sub { font-size: 11px; margin-top: 2px; }
-.ms.q1 .ms-sub, .ms.q2 .ms-sub { color: var(--text-soft); }
-.ms.q3 .ms-sub { color: rgba(255,255,255,0.6); }
-.insight { border-left: 3px solid var(--teal); background: var(--teal-pale); border-radius: 0 var(--radius) var(--radius) 0; padding: 13px 18px; font-size: 13.5px; color: var(--text-mid); line-height: 1.65; margin-bottom: 1.5rem; }
-.insight strong { color: var(--navy); font-weight: 600; }
-.cta { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding: 16px 20px; background: var(--navy); border-radius: 10px; margin-bottom: 1.25rem; }
-.cta-text { font-size: 13.5px; color: rgba(255,255,255,0.85); line-height: 1.5; }
-.cta-text strong { color: #fff; }
-.cta-btn { font-family: inherit; font-size: 13px; font-weight: 600; padding: 9px 20px; border-radius: 6px; border: none; background: #fff; color: var(--navy); cursor: pointer; letter-spacing: 0.02em; transition: all 0.15s; white-space: nowrap; text-decoration: none; display: inline-block; }
-.cta-btn:hover { background: var(--teal-pale2); }
-.footer-note { font-size: 11.5px; color: var(--text-soft); line-height: 1.65; padding-top: 1rem; border-top: 1px solid var(--border); font-style: italic; }
-.projection-stmt { background: var(--navy); border-radius: 12px; padding: 22px 26px; margin-bottom: 10px; line-height: 1.75; font-size: clamp(1rem, 2.4vw, 1.18rem); color: rgba(255,255,255,0.75); font-weight: 400; transition: background 0.4s ease; }
-.projection-stmt.ai-on { background: var(--teal); }
-.proj-val { color: #fff; font-weight: 800; font-size: 1.25em; }
-.proj-val.highlight { color: #7eecd0; }
-.proj-label { color: rgba(255,255,255,0.55); font-size: 0.78em; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-top: -2px; margin-bottom: 6px; }
-@media (max-width: 540px) {
-  .controls, .metrics-hero, .metrics-secondary { grid-template-columns: 1fr; }
-  .milestones { grid-template-columns: 1fr; }
-  .ctrl { grid-column: auto !important; }
-  .ai-tooltip { width: 210px; }
+body { font-family:var(--sans); background:#f7f8fb; color:var(--text); min-height:100vh; overflow-x:hidden; }
+
+/* Subtle dot grid */
+body::before { content:''; position:fixed; inset:0; background-image:radial-gradient(circle,rgba(20,40,80,.06) 1px,transparent 1px); background-size:26px 26px; pointer-events:none; z-index:0; }
+
+/* HEADER */
+header { position:relative; z-index:10; background:var(--navy); border-bottom:4px solid var(--teal); padding:0 40px; min-height:62px; display:flex; align-items:center; justify-content:space-between; }
+.logo { display:flex; align-items:center; gap:13px; }
+.logo-mark { width:36px; height:36px; background:var(--teal); clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:12px; color:#fff; letter-spacing:-.5px; }
+.logo h1 { font-size:14px; font-weight:800; color:#fff; letter-spacing:-.01em; }
+.logo p { font-size:11px; color:rgba(255,255,255,.5); margin-top:1px; }
+.header-badge { display:flex; align-items:center; gap:6px; padding:5px 13px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.14); font-size:11px; font-weight:600; color:rgba(255,255,255,.65); letter-spacing:.04em; }
+.header-badge span { color:var(--teal-light); font-weight:700; }
+
+main { position:relative; z-index:1; max-width:800px; margin:0 auto; padding:44px 24px 80px; }
+
+/* PROGRESS */
+.progress-wrap { margin-bottom:36px; }
+.progress-steps { display:flex; align-items:center; }
+.prog-step { display:flex; align-items:center; gap:9px; font-size:12px; font-weight:700; color:var(--text-soft); text-transform:uppercase; letter-spacing:.04em; }
+.prog-bubble { width:26px; height:26px; border-radius:50%; background:var(--silver-2); color:var(--text-soft); font-size:12px; font-weight:800; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:all .3s; }
+.prog-line { flex:1; height:2px; background:var(--silver-2); margin:0 10px; transition:background .3s; }
+.prog-step.active .prog-bubble { background:var(--navy); color:#fff; }
+.prog-step.active { color:var(--navy); }
+.prog-step.done .prog-bubble { background:var(--teal); color:#fff; }
+.prog-step.done { color:var(--teal); }
+.prog-line.done { background:var(--teal); }
+.prog-line.active { background:var(--navy); }
+
+/* HERO */
+.hero { text-align:center; margin-bottom:30px; }
+.hero-tag { display:inline-block; padding:5px 16px; background:var(--teal-pale); border:1px solid var(--teal-pale2); color:var(--teal); font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; margin-bottom:16px; }
+.hero h2 { font-size:34px; font-weight:800; line-height:1.15; color:var(--navy); margin-bottom:10px; letter-spacing:-.02em; }
+.hero h2 em { font-style:normal; color:var(--teal); }
+.hero p { font-size:16px; color:var(--text-mid); line-height:1.7; max-width:520px; margin:0 auto; }
+
+/* MODAL */
+.modal-overlay { display:none; position:fixed; inset:0; z-index:1000; background:rgba(20,40,80,.82); backdrop-filter:blur(4px); overflow-y:auto; }
+.modal-overlay.open { display:block; }
+.modal-box { max-width:600px; margin:48px auto; background:#fff; border-top:4px solid var(--navy); padding:40px; position:relative; box-shadow:0 20px 60px rgba(0,0,0,.18); }
+.modal-close { position:absolute; top:14px; right:14px; background:transparent; border:1px solid var(--border); color:var(--text-soft); width:29px; height:29px; cursor:pointer; font-size:15px; display:flex; align-items:center; justify-content:center; border-radius:50%; }
+.modal-close:hover { background:var(--teal-pale); border-color:var(--teal); color:var(--teal); }
+.modal-title { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--teal); margin-bottom:18px; }
+.modal-body { font-size:13.5px; line-height:1.75; color:var(--text-mid); }
+.modal-body h4 { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:var(--navy); margin-top:16px; margin-bottom:4px; border-left:3px solid var(--teal); padding-left:8px; }
+.modal-body h4:first-child { margin-top:0; }
+.modal-body strong { color:var(--navy); }
+.modal-btn { margin-top:24px; width:100%; padding:13px; background:var(--navy); border:none; color:#fff; font-family:var(--sans); font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; cursor:pointer; transition:background .2s; border-radius:var(--radius); }
+.modal-btn:hover { background:var(--navy-mid); }
+
+/* CARD */
+.card { background:#fff; border:1px solid var(--border); border-top:4px solid var(--navy); padding:36px; box-shadow:0 4px 20px rgba(20,40,80,.07); border-radius:0 0 var(--radius) var(--radius); animation:fadeUp .4s ease both; }
+.card-title { font-size:18px; font-weight:800; color:var(--navy); margin-bottom:5px; }
+.card-subtitle { font-size:14px; color:var(--text-soft); margin-bottom:28px; line-height:1.55; }
+
+/* DIVIDER */
+.section-div { display:flex; align-items:center; gap:12px; margin:24px 0 20px; }
+.section-div::before,.section-div::after { content:''; flex:1; height:1px; background:var(--border); }
+.section-div span { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.09em; color:var(--teal); white-space:nowrap; }
+
+/* FORM */
+.form-group { display:flex; flex-direction:column; gap:7px; margin-bottom:20px; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:20px; }
+label { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--text-mid); }
+input[type="text"],input[type="url"],select,textarea { background:var(--silver); border:1.5px solid var(--border); color:var(--text); padding:12px 15px; font-family:var(--sans); font-size:15px; outline:none; transition:border-color .2s,box-shadow .2s; width:100%; border-radius:var(--radius); }
+input:focus,select:focus,textarea:focus { border-color:var(--teal); box-shadow:0 0 0 3px rgba(80,120,140,.1); background:#fff; }
+select { cursor:pointer; appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a8fa8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 14px center; background-color:var(--silver); padding-right:38px; }
+select:focus { background-color:#fff; }
+textarea { resize:vertical; min-height:130px; line-height:1.6; }
+.field-hint { font-size:12px; color:var(--text-soft); margin-top:4px; line-height:1.5; }
+.field-hint a { color:var(--teal); text-decoration:underline; cursor:pointer; }
+
+/* TEASER */
+.teaser { margin-top:8px; padding:11px 15px; background:var(--gold-bg); border-left:3px solid var(--gold); font-size:12px; color:#7a5c10; line-height:1.6; border-radius:0 var(--radius) var(--radius) 0; }
+.teaser strong { color:#5a3e00; }
+
+/* T&C */
+.tc-row { display:flex; align-items:flex-start; gap:12px; padding:14px 16px; background:var(--teal-pale); border:1px solid var(--teal-pale2); border-radius:var(--radius); }
+.tc-row input[type="checkbox"] { width:17px; height:17px; flex-shrink:0; margin-top:2px; accent-color:var(--navy); cursor:pointer; }
+.tc-row span { font-size:13px; color:var(--text-mid); line-height:1.55; }
+.tc-row a { color:var(--teal); text-decoration:underline; }
+
+/* ERROR */
+.error-box { background:var(--red-bg); border:1px solid #e8b4b0; border-left:3px solid var(--red); padding:12px 16px; font-size:14px; color:var(--red); line-height:1.6; margin-top:14px; display:none; border-radius:0 var(--radius) var(--radius) 0; }
+.error-box.visible { display:block; }
+
+/* BUTTONS */
+.btn-primary { width:100%; padding:15px; background:var(--navy); border:none; color:#fff; font-family:var(--sans); font-size:15px; font-weight:700; letter-spacing:.02em; cursor:pointer; transition:all .2s; display:flex; align-items:center; justify-content:center; gap:10px; margin-top:22px; border-radius:var(--radius); }
+.btn-primary:hover:not(:disabled) { background:var(--navy-mid); transform:translateY(-1px); box-shadow:0 6px 20px rgba(20,40,80,.2); }
+.btn-primary:disabled { opacity:.4; cursor:not-allowed; transform:none; }
+.btn-back { background:transparent; border:none; color:var(--text-soft); font-family:var(--sans); font-size:13px; font-weight:600; cursor:pointer; display:flex; align-items:center; gap:6px; margin-top:14px; padding:0; text-transform:uppercase; letter-spacing:.06em; }
+.btn-back:hover { color:var(--teal); }
+
+/* PAGE 2 - COPY INSTRUCTION */
+.copy-instruction { background:var(--teal-pale); border:1px solid var(--teal-pale2); border-left:4px solid var(--teal); padding:20px 24px; margin-bottom:24px; border-radius:0 var(--radius) var(--radius) 0; }
+.copy-instruction-title { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--teal); margin-bottom:14px; }
+.copy-steps { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+.copy-step { text-align:center; }
+.copy-step-num { width:26px; height:26px; border-radius:50%; background:var(--navy); color:#fff; font-size:12px; font-weight:800; display:flex; align-items:center; justify-content:center; margin:0 auto 8px; }
+.copy-step-text { font-size:12px; color:var(--text-mid); line-height:1.5; }
+kbd { background:var(--navy); color:#fff; padding:1px 6px; font-size:11px; font-weight:600; font-family:var(--sans); border-radius:3px; margin:0 1px; }
+
+/* SKILLS TAG INPUT */
+.skills-wrap { display:flex; flex-wrap:wrap; gap:7px; margin-bottom:10px; min-height:16px; }
+.skill-tag { display:inline-flex; align-items:center; gap:6px; padding:5px 12px; background:var(--teal-pale); border:1px solid var(--teal-pale2); color:var(--teal); font-size:13px; font-weight:600; border-radius:20px; }
+.skill-tag button { background:none; border:none; cursor:pointer; color:var(--teal); font-size:15px; line-height:1; padding:0; opacity:.6; }
+.skill-tag button:hover { opacity:1; }
+.skill-input-row { display:flex; gap:8px; }
+.skill-input-row input { flex:1; border-radius:var(--radius) 0 0 var(--radius); }
+.skill-add-btn { padding:0 18px; background:var(--navy); border:none; color:#fff; font-family:var(--sans); font-size:13px; font-weight:700; cursor:pointer; transition:background .2s; white-space:nowrap; border-radius:0 var(--radius) var(--radius) 0; }
+.skill-add-btn:hover { background:var(--navy-mid); }
+.skill-suggestions { display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; }
+.skill-suggestion { padding:4px 11px; border:1px solid var(--border); background:#fff; color:var(--text-soft); font-size:12px; font-weight:600; cursor:pointer; transition:all .15s; border-radius:20px; }
+.skill-suggestion:hover { border-color:var(--teal); color:var(--teal); background:var(--teal-pale); }
+
+/* LOADING */
+.loading-section { display:none; text-align:center; padding:72px 0; }
+.loading-section.visible { display:block; animation:fadeUp .3s ease; }
+.spinner-wrap { position:relative; width:64px; height:64px; margin:0 auto 24px; }
+.spin-outer { width:64px; height:64px; border-radius:50%; border:3px solid var(--teal-pale2); border-top-color:var(--navy); animation:spin .9s linear infinite; position:absolute; }
+.spin-inner { width:44px; height:44px; border-radius:50%; border:2px solid var(--silver-2); border-top-color:var(--teal); animation:spin .6s linear infinite reverse; position:absolute; top:10px; left:10px; }
+@keyframes spin { to { transform:rotate(360deg); } }
+.loading-msg { font-size:18px; font-weight:700; color:var(--navy); margin-bottom:6px; }
+.loading-sub { font-size:13px; color:var(--text-soft); }
+
+/* RESULTS */
+.results-section { display:none; }
+.results-section.visible { display:block; animation:fadeUp .4s ease; }
+
+.score-card { background:var(--navy); padding:30px 32px; margin-bottom:20px; display:grid; grid-template-columns:auto 1fr; gap:28px; align-items:center; position:relative; overflow:hidden; border-radius:var(--radius); }
+.score-card::after { content:''; position:absolute; right:-30px; bottom:-40px; width:180px; height:180px; border-radius:50%; background:rgba(255,255,255,.04); }
+.score-num { font-size:72px; font-weight:800; line-height:1; color:var(--teal-light); }
+.score-num span { font-size:28px; color:rgba(255,255,255,.35); }
+.score-detail h3 { font-size:20px; font-weight:800; color:#fff; margin-bottom:6px; }
+.score-detail p { font-size:14px; color:rgba(255,255,255,.6); line-height:1.6; }
+.score-bar-track { height:4px; background:rgba(255,255,255,.15); margin-top:14px; border-radius:2px; }
+.score-bar-fill { height:100%; background:linear-gradient(90deg,var(--teal),var(--teal-light)); width:0%; transition:width 1.2s cubic-bezier(.4,0,.2,1); border-radius:2px; }
+
+.result-block { background:#fff; border:1px solid var(--border); margin-bottom:18px; border-radius:var(--radius); overflow:hidden; box-shadow:0 2px 12px rgba(20,40,80,.05); }
+.result-block-header { padding:14px 20px; background:var(--silver); border-bottom:1px solid var(--border); font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.09em; color:var(--navy); }
+.comparison { display:grid; grid-template-columns:1fr 1fr; }
+.comp-side { padding:20px; border-right:1px solid var(--border); }
+.comp-side:last-child { border-right:none; background:var(--teal-pale); }
+.comp-side-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; margin-bottom:10px; display:flex; align-items:center; gap:7px; color:var(--text-soft); }
+.dot { width:7px; height:7px; border-radius:50%; }
+.comp-text { font-size:14px; line-height:1.7; color:var(--text-mid); font-style:italic; }
+.comp-text.clean { font-style:normal; color:var(--text); white-space:pre-line; }
+.tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; }
+.tag { padding:4px 10px; font-size:12px; font-weight:600; border-radius:20px; }
+.tag-add { background:var(--green-bg); color:var(--green); }
+.tag-rem { background:var(--red-bg); color:var(--red); }
+.copy-btn { margin-top:14px; display:inline-flex; align-items:center; gap:7px; padding:8px 16px; border:1.5px solid var(--teal); background:transparent; color:var(--teal); font-family:var(--sans); font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; cursor:pointer; transition:all .2s; border-radius:var(--radius); }
+.copy-btn:hover { background:var(--teal); color:#fff; }
+.copy-btn svg { width:13px; height:13px; }
+.rationale { padding:16px 20px; background:var(--silver); border-top:1px solid var(--border); font-size:14px; line-height:1.65; color:var(--text-mid); }
+.rationale strong { color:var(--navy); }
+
+.insights { display:grid; grid-template-columns:repeat(3,1fr); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; margin-bottom:18px; box-shadow:0 2px 12px rgba(20,40,80,.05); }
+.insight-card { padding:20px; border-right:1px solid var(--border); background:#fff; }
+.insight-card:last-child { border-right:none; }
+.insight-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--teal); margin-bottom:8px; padding-bottom:6px; border-bottom:2px solid var(--teal-pale2); display:block; }
+.insight-text { font-size:13.5px; line-height:1.6; color:var(--text-mid); }
+
+/* CTA */
+.cta-block { background:var(--navy); padding:44px 40px; margin-top:4px; text-align:center; position:relative; overflow:hidden; border-radius:var(--radius); }
+.cta-block::before { content:''; position:absolute; top:-60px; right:-60px; width:220px; height:220px; border-radius:50%; background:rgba(255,255,255,.03); }
+.cta-eyebrow { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:var(--teal-light); margin-bottom:14px; }
+.cta-title { font-size:26px; font-weight:800; color:#fff; line-height:1.2; margin-bottom:14px; }
+.cta-body { font-size:15px; color:rgba(255,255,255,.65); line-height:1.75; max-width:520px; margin:0 auto 26px; }
+.cta-body strong { color:rgba(255,255,255,.9); }
+.cta-steps { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; max-width:520px; margin:0 auto 30px; text-align:left; }
+.cta-step { background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); padding:16px; border-radius:var(--radius); }
+.cta-step-num { font-size:20px; font-weight:800; color:var(--teal-light); margin-bottom:4px; }
+.cta-step-title { font-size:13px; font-weight:700; color:#fff; margin-bottom:3px; }
+.cta-step-body { font-size:12px; color:rgba(255,255,255,.5); line-height:1.5; }
+.cta-secondary { font-size:14px; color:rgba(255,255,255,.55); line-height:1.7; max-width:460px; margin:0 auto 26px; }
+.cta-btn { display:inline-flex; align-items:center; gap:10px; padding:15px 40px; background:var(--teal); color:#fff; font-family:var(--sans); font-size:15px; font-weight:700; text-decoration:none; transition:all .2s; border-radius:var(--radius); position:relative; z-index:1; }
+.cta-btn:hover { background:var(--teal-light); transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,0,0,.25); }
+.cta-note { margin-top:12px; font-size:12px; color:rgba(255,255,255,.35); position:relative; z-index:1; }
+
+.reset-btn { margin-top:18px; padding:11px 22px; background:transparent; border:1.5px solid var(--border); color:var(--text-soft); font-family:var(--sans); font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; cursor:pointer; transition:all .2s; border-radius:var(--radius); }
+.reset-btn:hover { border-color:var(--teal); color:var(--teal); }
+
+@keyframes fadeUp { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
+
+@media(max-width:640px) {
+  header { padding:0 20px; }
+  main { padding:28px 16px 60px; }
+  .hero h2 { font-size:26px; }
+  .comparison { grid-template-columns:1fr; }
+  .comp-side { border-right:none; border-bottom:1px solid var(--border); }
+  .insights { grid-template-columns:1fr; }
+  .insight-card { border-right:none; border-bottom:1px solid var(--border); }
+  .cta-steps { grid-template-columns:1fr; }
+  .copy-steps { grid-template-columns:1fr 1fr; }
+  .form-row { grid-template-columns:1fr; }
+  .score-card { grid-template-columns:1fr; }
+  .cta-block { padding:32px 20px; }
 }
 </style>
 </head>
 <body>
 
-<h1>What does 1% better every week<br>actually look like <em>for your business?</em></h1>
+<header>
+  <div class="logo">
+    <div class="logo-mark">AF</div>
+    <div>
+      <h1>LinkedIn Profile Optimiser</h1>
+      <p>by Agile Freedom Consulting Ltd</p>
+    </div>
+  </div>
+  <div class="header-badge">Powered by <span>Claude AI</span></div>
+</header>
 
-<p class="subtitle">Most businesses wait for the big breakthrough. The ones that consistently outperform don't. They commit to small, measurable improvements - every sprint, every week - and let time and consistency do the compounding. Commitment gets you started. <strong>Consistency gets you there.</strong></p>
-
-<p class="subtitle">Adjust the model below to your organisation's context and see what structured, patient, data-driven improvement delivers over a coaching and consultancy engagement.</p>
-
-<div class="af-quote">
-  <div class="af-quote-text">"In God we trust. All others must bring data."</div>
-  <div class="af-quote-attr">- W. Edwards Deming, father of continuous improvement</div>
+<!-- T&Cs MODAL -->
+<div class="modal-overlay" id="tcModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeTc()">&#x2715;</button>
+    <div class="modal-title">Terms &amp; Conditions of Use</div>
+    <div class="modal-body">
+      <p>These Terms govern your use of the LinkedIn Profile Optimiser tool provided by <strong>Agile Freedom Consulting Ltd</strong>, registered in England and Wales, company number <strong>15529145</strong>, at 4 Hawkins Avenue, Stanford in the Vale, Faringdon, Oxfordshire, SN7 8FY.</p>
+      <h4>1. Acceptance</h4>
+      <p>By ticking the acceptance checkbox and using this tool, you confirm you have read and agree to these Terms.</p>
+      <h4>2. Nature of the Tool</h4>
+      <p>Free to use. Powered by Claude AI (Anthropic). All outputs are AI-generated suggestions — not professional advice. Use your own judgement before implementing recommendations.</p>
+      <h4>3. Data You Provide</h4>
+      <p>By using this tool you agree that: (a) your name, LinkedIn URL, and profile content will be used to generate your report; (b) your details and report will be sent to Agile Freedom Consulting Ltd at info@agilefreedom.co.uk for service improvement and potential follow-up; (c) you consent to being contacted regarding services at agilefreedom.co.uk.</p>
+      <h4>4. Data Protection</h4>
+      <p>We process your data under UK GDPR and the Data Protection Act 2018. Your data will not be sold to third parties. To access, correct, or delete your data contact info@agilefreedom.co.uk.</p>
+      <h4>5. Intellectual Property</h4>
+      <p>The tool and its prompts are the intellectual property of Agile Freedom Consulting Ltd. You may not reproduce or distribute the tool without written permission.</p>
+      <h4>6. Limitation of Liability</h4>
+      <p>Provided "as is". Not liable for any loss arising from reliance on AI-generated recommendations.</p>
+      <h4>7. Governing Law</h4>
+      <p>Laws of England and Wales.</p>
+      <h4>8. Contact</h4>
+      <p>info@agilefreedom.co.uk | Agile Freedom Consulting Ltd, 4 Hawkins Avenue, Stanford in the Vale, Faringdon, Oxfordshire, SN7 8FY.</p>
+      <p style="margin-top:14px;font-size:11px;color:#aaa;">Last updated: March 2026. To be reviewed by a qualified solicitor before public deployment.</p>
+    </div>
+    <button class="modal-btn" onclick="closeTc()">Close</button>
+  </div>
 </div>
 
-<div class="projection-stmt" id="projection-stmt">
-  By consistently engaging with leadership consultancy that delivers <span class="proj-val" id="proj-rate">1.0%</span> improvement per <span class="proj-val" id="proj-freq">week</span>, your business can expect an overall improvement of <span class="proj-val highlight" id="proj-total">+180%</span> across revenue, profitability, productivity, team morale, and operational efficiency - over a <span class="proj-val" id="proj-months">18-month</span> engagement.
-</div>
+<main>
 
-<div class="metrics-hero">
-  <div class="metric-hero">
-    <div class="metric-hero-label">Total improvement</div>
-    <div class="metric-hero-value" id="m-total">+180%</div>
+  <!-- PROGRESS -->
+  <div class="progress-wrap">
+    <div class="progress-steps">
+      <div class="prog-step active" id="ps1">
+        <div class="prog-bubble">1</div>
+        <span>Your Details</span>
+      </div>
+      <div class="prog-line" id="pl1"></div>
+      <div class="prog-step" id="ps2">
+        <div class="prog-bubble">2</div>
+        <span>Your Profile</span>
+      </div>
+      <div class="prog-line" id="pl2"></div>
+      <div class="prog-step" id="ps3">
+        <div class="prog-bubble">3</div>
+        <span>Your Report</span>
+      </div>
+    </div>
   </div>
-  <div class="metric-hero">
-    <div class="metric-hero-label">Capability multiplier</div>
-    <div class="metric-hero-value teal" id="m-multiplier">2.8x</div>
-  </div>
-</div>
-<div class="metrics-secondary">
-  <div class="metric">
-    <div class="metric-label">Improvement cycles</div>
-    <div class="metric-value" id="m-cycles">78 weeks</div>
-  </div>
-  <div class="metric">
-    <div class="metric-label">With AI acceleration</div>
-    <div class="metric-value teal" id="m-ai-total">Toggle on to see</div>
-  </div>
-</div>
 
-<div class="ai-row">
-  <div class="ai-info">
-    <div class="ai-label-row">
-      <span class="ai-label">AI acceleration</span>
-      <button class="ai-info-btn" tabindex="0" aria-label="More information about AI acceleration">i
-        <span class="ai-tooltip">Research by McKinsey, Accenture and MIT Sloan consistently shows AI-enabled teams improve cycle speed and output quality by 25-40%. The 30% figure used here is a conservative mid-range estimate - reflecting faster retrospectives, AI-assisted waste identification, automated reporting, and reduced friction between improvement cycles.</span>
+  <!-- PAGE 1 -->
+  <div id="page1">
+    <div class="hero">
+      <div class="hero-tag">&#10024; Free AI-Powered Tool</div>
+      <h2>Turn your LinkedIn into a<br><em>consulting lead machine</em></h2>
+      <p>Three steps. A scored analysis, optimised headline, rewritten About section, and positioning insights — tailored to your market and niche.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Step 1 — Your details</div>
+      <div class="card-subtitle">Quick to fill in. Your details help personalise the analysis and are captured here before you enter your profile content.</div>
+
+      <div class="form-row">
+        <div class="form-group" style="margin-bottom:0">
+          <label>First Name *</label>
+          <input type="text" id="firstName" placeholder="e.g. Hassan">
+        </div>
+        <div class="form-group" style="margin-bottom:0">
+          <label>Last Name *</label>
+          <input type="text" id="lastName" placeholder="e.g. Khadra">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>LinkedIn Profile URL *</label>
+        <input type="url" id="linkedinUrl" placeholder="https://www.linkedin.com/in/yourname">
+        <div class="field-hint">Used to identify your profile. See our <a onclick="openTc();return false;" href="#">Terms &amp; Conditions</a> for how your data is handled.</div>
+        <div class="teaser">&#9889; Use this tool to optimise your LinkedIn profile — then unlock the option to get your own <strong>autonomous AI lead gen engine</strong> that finds prospects, sends personalised outreach, and books appointments automatically.</div>
+      </div>
+
+      <div class="section-div"><span>Targeting</span></div>
+
+      <div class="form-group">
+        <label>Target Market *</label>
+        <select id="targetMarket">
+          <option value="North America (US &amp; Canada)">North America (US &amp; Canada)</option>
+          <option value="UK &amp; Europe">UK &amp; Europe</option>
+          <option value="Global / International">Global / International</option>
+          <option value="GCC / Middle East">GCC / Middle East</option>
+          <option value="APAC">APAC</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Consulting Niche *</label>
+        <select id="niche">
+          <option value="AI &amp; Digital Transformation">AI &amp; Digital Transformation</option>
+          <option value="Business Strategy &amp; Operations">Business Strategy &amp; Operations</option>
+          <option value="Agile &amp; Project Delivery">Agile &amp; Project Delivery</option>
+          <option value="Technology &amp; Cloud">Technology &amp; Cloud</option>
+          <option value="Marketing &amp; Growth">Marketing &amp; Growth</option>
+          <option value="Finance &amp; Fundraising">Finance &amp; Fundraising</option>
+          <option value="Leadership &amp; Executive Coaching">Leadership &amp; Executive Coaching</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Engagement Types Offered *</label>
+        <select id="engagementType">
+          <option value="Consulting, Coaching &amp; Fractional CxO">Consulting, Coaching &amp; Fractional CxO</option>
+          <option value="Consulting only">Consulting only</option>
+          <option value="Coaching &amp; Training">Coaching &amp; Training</option>
+          <option value="Fractional / Part-time roles">Fractional / Part-time roles</option>
+          <option value="Advisory &amp; Board roles">Advisory &amp; Board roles</option>
+        </select>
+      </div>
+
+      <div class="tc-row">
+        <input type="checkbox" id="tcAccept">
+        <span>I have read and agree to the <a onclick="openTc();return false;" href="#">Terms &amp; Conditions</a> of Agile Freedom Consulting Ltd, including consent to be contacted following my use of this tool.</span>
+      </div>
+
+      <div class="error-box" id="errPage1"></div>
+
+      <button class="btn-primary" onclick="goPage2()">
+        Continue to Profile Entry
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </button>
     </div>
-    <span class="ai-desc">Faster learning loops, reduced waste, automated insight generation - boosts each cycle's improvement rate by <strong>+30%</strong></span>
-  </div>
-  <div class="ai-toggle-wrap">
-    <span class="ai-state" id="ai-state">Off</span>
-    <label class="toggle-pill">
-      <input type="checkbox" id="ai-toggle">
-      <span class="toggle-track"></span>
-      <span class="toggle-thumb"></span>
-    </label>
-  </div>
-</div>
-
-<div class="controls">
-  <div class="ctrl">
-    <div class="ctrl-head">
-      <span class="ctrl-name">Improvement per cycle</span>
-      <span class="ctrl-val" id="v-rate">1.0%</span>
-    </div>
-    <div class="range-wrap">
-      <input type="range" id="rate" min="0" max="10" step="0.5" value="1">
-      <div class="range-ticks" id="rate-ticks"></div>
-    </div>
   </div>
 
-  <div class="ctrl">
-    <div class="ctrl-head">
-      <span class="ctrl-name">Cycle frequency</span>
-    </div>
-    <div class="freq-btns">
-      <button class="freq-btn" data-fi="0">Daily</button>
-      <button class="freq-btn active" data-fi="1">Weekly</button>
-      <button class="freq-btn" data-fi="2">Monthly</button>
-      <button class="freq-btn" data-fi="3">Quarterly</button>
+  <!-- PAGE 2 -->
+  <div id="page2" style="display:none;">
+    <div class="card">
+      <div class="card-title">Step 2 — Your profile content</div>
+      <div class="card-subtitle">Copy each section directly from your LinkedIn profile. The more detail you include, the sharper your report will be.</div>
+
+      <div class="copy-instruction">
+        <div class="copy-instruction-title">&#128161; How to copy from LinkedIn</div>
+        <div class="copy-steps">
+          <div class="copy-step">
+            <div class="copy-step-num">1</div>
+            <div class="copy-step-text">Open your <strong>LinkedIn profile</strong> in a new tab</div>
+          </div>
+          <div class="copy-step">
+            <div class="copy-step-num">2</div>
+            <div class="copy-step-text">Click each section and <strong>copy the text</strong></div>
+          </div>
+          <div class="copy-step">
+            <div class="copy-step-num">3</div>
+            <div class="copy-step-text">Paste into each field — <kbd>Ctrl+V</kbd> / <kbd>Cmd+V</kbd></div>
+          </div>
+          <div class="copy-step">
+            <div class="copy-step-num">4</div>
+            <div class="copy-step-text">Hit <strong>Generate Report</strong> when ready</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Headline -->
+      <div class="form-group">
+        <label>Current LinkedIn Headline *</label>
+        <input type="text" id="headline" placeholder="e.g. Senior Project Manager | AI &amp; Digital Transformation | 15+ years delivering £130M+...">
+        <div class="field-hint">The line directly under your name on your LinkedIn profile.</div>
+      </div>
+
+      <!-- About -->
+      <div class="form-group">
+        <label>About / Summary Section *</label>
+        <textarea id="aboutText" style="min-height:160px;" placeholder="Paste your current About / Summary section here..."></textarea>
+        <div class="field-hint">Click "Show more" on your LinkedIn About section to get the full text before copying.</div>
+      </div>
+
+      <!-- Recent roles -->
+      <div class="form-group">
+        <label>Recent Roles — last 2 or 3 positions</label>
+        <textarea id="rolesText" style="min-height:120px;" placeholder="e.g.&#10;Senior PM at Acme Corp – Led cloud transformation for 20+ enterprise clients (2023–present)&#10;Agile Consultant at Google Partner – Delivered 9 Google Cloud projects across AI/ML and data (2022–2023)&#10;Founder at StartupX – Built AI SaaS to 300+ business clients (2019–2024)"></textarea>
+        <div class="field-hint">Job title, company name, brief description. Copy from your Experience section.</div>
+      </div>
+
+      <!-- Skills tag input -->
+      <div class="form-group">
+        <label>Key Skills</label>
+        <div class="skills-wrap" id="skillsWrap"></div>
+        <div class="skill-input-row">
+          <input type="text" id="skillInput" placeholder="Type a skill and press Add or Enter..." onkeydown="if(event.key==='Enter'){event.preventDefault();addSkill();}">
+          <button class="skill-add-btn" onclick="addSkill()">+ Add</button>
+        </div>
+        <div class="skill-suggestions" id="skillSuggestions"></div>
+        <div class="field-hint">Add your top skills — type and click Add, or click a suggestion below. Skills are automatically tailored to your niche.</div>
+      </div>
+
+      <!-- Notable clients -->
+      <div class="form-group">
+        <label>Notable Clients / Organisations <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--text-soft);font-size:11px;">(optional but powerful)</span></label>
+        <input type="text" id="clientsText" placeholder="e.g. Google, Deutsche Bank, NHS, Atlassian, Vodafone, Dyson...">
+        <div class="field-hint">Named clients dramatically strengthen credibility signals in your optimised profile.</div>
+      </div>
+
+      <div class="error-box" id="errPage2"></div>
+
+      <button class="btn-primary" id="generateBtn" onclick="runAnalysis()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        Generate My Report
+      </button>
+
+      <button class="btn-back" onclick="goPage1()">&#8592; Back to Step 1</button>
     </div>
   </div>
 
-  <div class="ctrl" style="grid-column: 1 / -1;">
-    <div class="ctrl-head">
-      <span class="ctrl-name">Project length</span>
-      <span class="ctrl-val" id="v-months">18 months</span>
+  <!-- LOADING -->
+  <div class="loading-section" id="loadingSection">
+    <div class="spinner-wrap">
+      <div class="spin-outer"></div>
+      <div class="spin-inner"></div>
     </div>
-    <div class="range-wrap">
-      <input type="range" id="months" min="3" max="36" step="1" value="18">
-      <div class="range-ticks" id="months-ticks"></div>
-    </div>
+    <div class="loading-msg" id="loadingMsg">Analysing your profile...</div>
+    <div class="loading-sub">Claude AI is reviewing your positioning and crafting recommendations</div>
   </div>
-</div>
 
-<div class="chart-wrap"><canvas id="chart"></canvas></div>
-<div class="milestones" id="milestones"></div>
-<div class="insight" id="insight"></div>
+  <!-- PAGE 3 - RESULTS -->
+  <div class="results-section" id="resultsSection">
 
-<div class="cta">
-  <div class="cta-text"><strong>Ready to build this into your organisation?</strong><br>Agile Freedom designs and coaches the exact programme this model reflects.</div>
-  <a class="cta-btn" href="https://www.agilefreedom.co.uk" target="_blank">Get in touch &#8599;</a>
-</div>
+    <div class="score-card">
+      <div class="score-num" id="scoreNum">-<span>/100</span></div>
+      <div class="score-detail">
+        <h3 id="scoreLabel">-</h3>
+        <p id="scoreSummary">-</p>
+        <div class="score-bar-track"><div class="score-bar-fill" id="scoreBar"></div></div>
+      </div>
+    </div>
 
-<p class="footer-note">Modelled as compound growth: each cycle's improvement is applied to the current capability level, not the original baseline. AI acceleration applies a conservative 30% boost to each cycle's improvement rate - reflecting faster retrospectives, AI-assisted waste identification, and reduced friction in delivery. For illustrative purposes only. &copy; 2026 Agile Freedom Consultancy &middot; agilefreedom.co.uk</p>
+    <!-- Headline -->
+    <div class="result-block">
+      <div class="result-block-header">&#128221; Headline</div>
+      <div class="comparison">
+        <div class="comp-side">
+          <div class="comp-side-label"><span class="dot" style="background:var(--red)"></span>Current</div>
+          <div class="comp-text" id="currentHeadlineDisp">-</div>
+          <div class="tags" id="headlineIssues"></div>
+        </div>
+        <div class="comp-side">
+          <div class="comp-side-label"><span class="dot" style="background:var(--green)"></span>Optimised</div>
+          <div class="comp-text clean" id="newHeadline">-</div>
+          <div class="tags" id="headlineStrengths"></div>
+          <button class="copy-btn" onclick="copyEl('newHeadline',this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            Copy Headline
+          </button>
+        </div>
+      </div>
+      <div class="rationale" id="headlineRationale"></div>
+    </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+    <!-- About -->
+    <div class="result-block">
+      <div class="result-block-header">&#128196; About Section</div>
+      <div class="comparison">
+        <div class="comp-side">
+          <div class="comp-side-label"><span class="dot" style="background:var(--red)"></span>What to Fix</div>
+          <div class="comp-text" id="aboutIssues">-</div>
+          <div class="tags" id="aboutIssueTags"></div>
+        </div>
+        <div class="comp-side">
+          <div class="comp-side-label"><span class="dot" style="background:var(--green)"></span>Optimised Version</div>
+          <div class="comp-text clean" id="newAbout">-</div>
+          <div class="tags" id="aboutStrengths"></div>
+          <button class="copy-btn" onclick="copyEl('newAbout',this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2v1"/></svg>
+            Copy About Section
+          </button>
+        </div>
+      </div>
+      <div class="rationale" id="aboutRationale"></div>
+    </div>
+
+    <!-- Insights -->
+    <div class="result-block" style="overflow:visible;border:none;box-shadow:none;background:transparent;margin-bottom:4px;">
+      <div class="result-block-header" style="border-radius:var(--radius) var(--radius) 0 0;">&#128161; Positioning Insights</div>
+      <div class="insights" style="border-radius:0 0 var(--radius) var(--radius);border-top:none;">
+        <div class="insight-card">
+          <span class="insight-label">Your Biggest Asset</span>
+          <div class="insight-text" id="assetInsight">-</div>
+        </div>
+        <div class="insight-card">
+          <span class="insight-label">Your Biggest Gap</span>
+          <div class="insight-text" id="gapInsight">-</div>
+        </div>
+        <div class="insight-card">
+          <span class="insight-label">Quick Win</span>
+          <div class="insight-text" id="quickWinInsight">-</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-block">
+      <div class="cta-eyebrow">Your profile is optimised. Now let's fill your pipeline.</div>
+      <div class="cta-title">Stop doing lead gen manually.<br>Let an AI agent do it for you.</div>
+      <p class="cta-body">I build <strong>autonomous AI agentic systems</strong> for consultants and independent professionals — tools that identify your ideal prospects, craft hyper-personalised outreach in your voice, follow up intelligently, and land qualified appointments in your calendar. While you sleep.</p>
+      <div class="cta-steps">
+        <div class="cta-step">
+          <div class="cta-step-num">01</div>
+          <div class="cta-step-title">Prospect</div>
+          <div class="cta-step-body">AI finds and qualifies your ideal clients automatically</div>
+        </div>
+        <div class="cta-step">
+          <div class="cta-step-num">02</div>
+          <div class="cta-step-title">Outreach</div>
+          <div class="cta-step-body">Personalised messages sent in your voice at scale</div>
+        </div>
+        <div class="cta-step">
+          <div class="cta-step-num">03</div>
+          <div class="cta-step-title">Book</div>
+          <div class="cta-step-body">Qualified appointments land in your calendar automatically</div>
+        </div>
+      </div>
+      <p class="cta-secondary">I also work with consultants, Agile and project delivery practitioners, AI-enabled business ops leaders, and start-ups on strategy, delivery, and building custom AI tools. If any of that resonates — let's talk.</p>
+      <a href="https://www.cal.eu/hassan-khadra/30min" target="_blank" rel="noopener" class="cta-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Book a Free Discovery Call
+      </a>
+      <p class="cta-note">30 minutes. No pitch. Just a real conversation about what's possible.</p>
+    </div>
+
+    <button class="reset-btn" onclick="resetAll()">&#8592; Analyse Another Profile</button>
+
+  </div>
+
+</main>
+
 <script>
-const freqPerYear = [365, 52, 12, 4];
-const freqSingular = ['days', 'weeks', 'months', 'quarters'];
-const freqCycleLabel = ['daily', 'weekly', 'monthly', 'quarterly'];
-const AI_BOOST = 30;
-let selectedFi = 1, myChart;
+const EMAILJS_PUBLIC_KEY  = 'K8QwJRjbHqJh637yn';
+const EMAILJS_SERVICE_ID  = 'service_1vpj9hp';
+const EMAILJS_TEMPLATE_ID = 'template_7i71t4a';
 
-function buildTicks(containerId, min, max, ticks) {
-  const el = document.getElementById(containerId);
-  el.innerHTML = '';
-  ticks.forEach(function(t) {
-    const pct = (t.val - min) / (max - min) * 100;
-    const span = document.createElement('span');
-    span.className = 'range-tick';
-    span.style.left = pct + '%';
-    span.textContent = t.label;
-    el.appendChild(span);
-  });
+// Skill suggestions per niche
+const SKILL_SETS = {
+  'AI &amp; Digital Transformation': ['AI Strategy','Machine Learning','Agentic AI','Cloud Migration','Digital Transformation','Change Management','Data Analytics','LLM Implementation','Prompt Engineering','Automation'],
+  'Business Strategy &amp; Operations': ['Business Strategy','Operating Model Design','OKRs','Process Optimisation','P&L Management','Stakeholder Management','Organisational Design','Go-to-Market','Commercial Strategy','Cost Reduction'],
+  'Agile &amp; Project Delivery': ['Agile Coaching','Scrum','Kanban','SAFe','PMO Governance','Risk Management','RAID Logs','Backlog Refinement','Sprint Planning','Flow Metrics'],
+  'Technology &amp; Cloud': ['AWS','GCP','Azure','DevOps','Cloud Architecture','Platform Engineering','SDLC','System Integration','API Design','Infrastructure'],
+  'Marketing &amp; Growth': ['Growth Hacking','SEO','Demand Generation','Content Strategy','Brand Positioning','CRO','Performance Marketing','LinkedIn Marketing','Email Marketing','Analytics'],
+  'Finance &amp; Fundraising': ['Financial Modelling','Pitch Decks','Investor Relations','Due Diligence','Fundraising','FP&A','Cash Flow Management','Valuation','Term Sheets','Cap Tables'],
+  'Leadership &amp; Executive Coaching': ['Executive Coaching','Leadership Development','Team Culture','Psychological Safety','EQ','Performance Management','1:1 Coaching','Facilitation','Keynote Speaking','Culture Change'],
+  'Other': ['Consulting','Strategy','Stakeholder Management','Change Management','Project Management','Business Development','Communication','Leadership','Analysis','Innovation']
+};
+
+let skills = [];
+
+function getSuggestions() {
+  const niche = document.getElementById('niche').value;
+  return SKILL_SETS[niche] || SKILL_SETS['Other'];
 }
 
-buildTicks('rate-ticks', 0, 10, [
-  { val: 0,   label: '0%'   },
-  { val: 2.5, label: '2.5%' },
-  { val: 5,   label: '5%'   },
-  { val: 7.5, label: '7.5%' },
-  { val: 10,  label: '10%'  }
-]);
-
-buildTicks('months-ticks', 3, 36, [
-  { val: 3,  label: '3mo'  },
-  { val: 6,  label: '6mo'  },
-  { val: 12, label: '12mo' },
-  { val: 18, label: '18mo' },
-  { val: 24, label: '24mo' },
-  { val: 36, label: '36mo' }
-]);
-
-function buildData(rate, fi, months, aiOn) {
-  const cpy = freqPerYear[fi];
-  const totalCycles = Math.round((months / 12) * cpy);
-  const effRate = (rate / 100) * (aiOn ? (1 + AI_BOOST / 100) : 1);
-  const labels = [], compound = [];
-  for (var c = 0; c <= totalCycles; c++) {
-    var mIn = (c / cpy) * 12;
-    if (c === 0) {
-      labels.push('Start');
-    } else {
-      var m = Math.round(mIn);
-      var show = (c % Math.max(1, Math.round(totalCycles / 8)) === 0) || c === totalCycles;
-      labels.push(show ? (m < 12 ? 'Mo ' + m : (m / 12).toFixed(m % 12 === 0 ? 0 : 1) + 'y') : '');
-    }
-    compound.push(parseFloat((Math.pow(1 + effRate, c) * 100).toFixed(2)));
-  }
-  return { labels: labels, compound: compound, totalCycles: totalCycles };
+function renderSkills() {
+  const wrap = document.getElementById('skillsWrap');
+  wrap.innerHTML = skills.map((s,i) =>
+    `<span class="skill-tag">${s}<button onclick="removeSkill(${i})" title="Remove">&#x2715;</button></span>`
+  ).join('');
 }
 
-function fmtX(v) { return (v / 100).toFixed(2) + 'x'; }
-function fmtPct(v) { return '+' + Math.round(v - 100) + '%'; }
-function msAt(arr, n, f) { return arr[Math.min(Math.round(f * n), arr.length - 1)]; }
-
-function update() {
-  var rate = +document.getElementById('rate').value;
-  var months = +document.getElementById('months').value;
-  var aiOn = document.getElementById('ai-toggle').checked;
-  var fi = selectedFi;
-
-  document.getElementById('v-rate').textContent = rate.toFixed(1) + '%';
-  document.getElementById('v-months').textContent = months + ' month' + (months !== 1 ? 's' : '');
-
-  var se = document.getElementById('ai-state');
-  se.textContent = aiOn ? 'On' : 'Off';
-  se.className = 'ai-state' + (aiOn ? ' on' : '');
-
-  var base = buildData(rate, fi, months, false);
-  var withAI = buildData(rate, fi, months, true);
-  var finalC = base.compound[base.compound.length - 1];
-  var finalCAI = withAI.compound[withAI.compound.length - 1];
-  var dispC = aiOn ? withAI.compound : base.compound;
-  var finalD = aiOn ? finalCAI : finalC;
-  var totalCycles = base.totalCycles;
-
-  document.getElementById('m-total').textContent = fmtPct(finalD);
-  document.getElementById('m-multiplier').textContent = fmtX(finalD);
-  document.getElementById('m-cycles').textContent = totalCycles + ' ' + freqSingular[fi];
-  document.getElementById('m-ai-total').textContent = aiOn ? fmtPct(finalCAI) : 'Toggle on to see';
-  document.querySelector('.metrics-hero').classList.toggle('ai-on', aiOn);
-  document.querySelector('.metrics-secondary').classList.toggle('ai-on', aiOn);
-
-  var freqWord = ['day', 'week', 'month', 'quarter'];
-  var monthsText = months < 12 ? months + '-month' : (months % 12 === 0 ? (months / 12) + '-year' : months + '-month');
-  document.getElementById('proj-rate').textContent = rate.toFixed(1) + '%';
-  document.getElementById('proj-freq').textContent = freqWord[fi];
-  document.getElementById('proj-total').textContent = fmtPct(finalD);
-  document.getElementById('proj-months').textContent = monthsText;
-  document.getElementById('projection-stmt').classList.toggle('ai-on', aiOn);
-
-  var fracs = [1/3, 2/3, 1];
-  var classes = ['q1', 'q2', 'q3'];
-  var names = ['First third', 'Two thirds', 'Project end'];
-  document.getElementById('milestones').innerHTML = fracs.map(function(f, i) {
-    var v = msAt(dispC, totalCycles, f);
-    var m = Math.round(f * months);
-    return '<div class="ms ' + classes[i] + '">'
-      + '<div class="ms-period">' + names[i] + ' · Mo ' + m + '</div>'
-      + '<div class="ms-val">' + fmtX(v) + '</div>'
-      + '<div class="ms-sub">' + fmtPct(v) + ' above baseline</div>'
-      + '</div>';
-  }).join('');
-
-  var pNote = months >= 18
-    ? 'The results compound most dramatically in the final stretch - patience and consistency are the strategy.'
-    : 'Extend the engagement to 18+ months to see how dramatically the final phase compounds.';
-  var aiNote = aiOn
-    ? ' With AI acceleration active, that jumps to <strong>' + fmtPct(finalCAI) + '</strong> - the same effort, amplified.'
-    : '';
-
-  document.getElementById('insight').innerHTML =
-    '<strong>' + totalCycles + ' ' + freqCycleLabel[fi] + ' cycles</strong> at just '
-    + '<strong>' + rate.toFixed(1) + '% improvement per cycle</strong> compounds your organisation\'s capability to '
-    + '<strong>' + fmtX(finalD) + ' its starting point</strong> - a '
-    + '<strong>' + fmtPct(finalD) + '</strong> total gain.' + aiNote + ' ' + pNote;
-
-  var datasets = [{
-    label: 'Compounded improvement',
-    data: dispC,
-    borderColor: '#142850',
-    backgroundColor: 'rgba(20,40,80,0.07)',
-    borderWidth: 2,
-    fill: true,
-    tension: 0.4,
-    pointRadius: 0,
-    pointHoverRadius: 5
-  }];
-
-  if (aiOn) {
-    datasets.push({
-      label: 'Without AI acceleration',
-      data: base.compound,
-      borderColor: '#7aaabb',
-      backgroundColor: 'transparent',
-      borderWidth: 1.5,
-      borderDash: [5, 4],
-      fill: false,
-      tension: 0.4,
-      pointRadius: 0,
-      pointHoverRadius: 4
-    });
-  }
-
-  if (myChart) {
-    myChart.data.labels = base.labels;
-    myChart.data.datasets = datasets;
-    myChart.update('none');
-  } else {
-    myChart = new Chart(document.getElementById('chart'), {
-      type: 'line',
-      data: { labels: base.labels, datasets: datasets },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        interaction: { mode: 'index', intersect: false },
-        plugins: {
-          legend: { display: false },
-          tooltip: { callbacks: { label: function(ctx) { return ' ' + ctx.dataset.label + ': ' + ctx.raw.toFixed(1) + '% of baseline'; } } }
-        },
-        scales: {
-          x: { ticks: { color: '#7a8fa8', font: { size: 11 }, autoSkip: true, maxTicksLimit: 9, maxRotation: 0 }, grid: { display: false } },
-          y: { ticks: { color: '#7a8fa8', font: { size: 11 }, callback: function(v) { return v + '%'; } }, grid: { color: 'rgba(20,40,80,0.06)' } }
-        }
-      }
-    });
-  }
+function renderSuggestions() {
+  const sugg = getSuggestions().filter(s => !skills.includes(s));
+  const el = document.getElementById('skillSuggestions');
+  el.innerHTML = sugg.slice(0,10).map(s =>
+    `<button class="skill-suggestion" onclick="addSuggestion('${s}')">${s}</button>`
+  ).join('');
 }
 
-document.querySelectorAll('.freq-btn').forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    document.querySelectorAll('.freq-btn').forEach(function(b) { b.classList.remove('active'); });
-    btn.classList.add('active');
-    selectedFi = +btn.dataset.fi;
-    update();
-  });
+function addSkill() {
+  const inp = document.getElementById('skillInput');
+  const val = inp.value.trim();
+  if (val && !skills.includes(val)) { skills.push(val); renderSkills(); renderSuggestions(); }
+  inp.value = '';
+  inp.focus();
+}
+
+function addSuggestion(s) {
+  if (!skills.includes(s)) { skills.push(s); renderSkills(); renderSuggestions(); }
+}
+
+function removeSkill(i) { skills.splice(i,1); renderSkills(); renderSuggestions(); }
+
+// Update suggestions when niche changes
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('niche').addEventListener('change', renderSuggestions);
+  renderSuggestions();
 });
 
-document.getElementById('ai-toggle').addEventListener('change', update);
-document.getElementById('rate').addEventListener('input', update);
-document.getElementById('months').addEventListener('input', update);
-update();
+function openTc() { document.getElementById('tcModal').classList.add('open'); }
+function closeTc() { document.getElementById('tcModal').classList.remove('open'); }
+
+function setProgress(step) {
+  const steps = [
+    {ps:'ps1',pl:'pl1'},{ps:'ps2',pl:'pl2'},{ps:'ps3',pl:null}
+  ];
+  steps.forEach(function(s,i) {
+    const ps = document.getElementById(s.ps);
+    const pl = s.pl ? document.getElementById(s.pl) : null;
+    ps.className = 'prog-step' + (i+1 === step ? ' active' : i+1 < step ? ' done' : '');
+    if (pl) pl.className = 'prog-line' + (i+1 < step ? ' done' : i+1 === step ? ' active' : '');
+  });
+}
+
+function goPage2() {
+  const firstName = document.getElementById('firstName').value.trim();
+  const lastName  = document.getElementById('lastName').value.trim();
+  const url       = document.getElementById('linkedinUrl').value.trim();
+  const tc        = document.getElementById('tcAccept').checked;
+  const err       = document.getElementById('errPage1');
+  err.classList.remove('visible');
+
+  if (!firstName || !lastName) { err.textContent='Please enter your first and last name.'; err.classList.add('visible'); return; }
+  if (!url || !url.includes('linkedin.com')) { err.textContent='Please enter a valid LinkedIn profile URL.'; err.classList.add('visible'); return; }
+  if (!tc) { err.textContent='Please accept the Terms & Conditions to continue.'; err.classList.add('visible'); return; }
+
+  sendLeadEmail(firstName, lastName, url);
+
+  document.getElementById('page1').style.display = 'none';
+  document.getElementById('page2').style.display = 'block';
+  setProgress(2);
+  renderSuggestions();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function goPage1() {
+  document.getElementById('page2').style.display = 'none';
+  document.getElementById('page1').style.display = 'block';
+  setProgress(1);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function sendLeadEmail(firstName, lastName, url) {
+  try {
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+      to_email:'info@agilefreedom.co.uk', person_name:firstName+' '+lastName,
+      linkedin_url:url, target_market:document.getElementById('targetMarket').value,
+      niche:document.getElementById('niche').value, engagement:document.getElementById('engagementType').value,
+      profile_score:'Pending — report not yet generated', score_label:'', new_headline:'',
+      new_about:'', biggest_asset:'', biggest_gap:'', quick_win:'',
+      timestamp:new Date().toLocaleString('en-GB',{timeZone:'Europe/London'})
+    });
+  } catch(e) { console.warn('Lead email failed silently:',e); }
+}
+
+function sendReportEmail(result) {
+  try {
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+      to_email:'info@agilefreedom.co.uk',
+      person_name:document.getElementById('firstName').value.trim()+' '+document.getElementById('lastName').value.trim(),
+      linkedin_url:document.getElementById('linkedinUrl').value.trim(),
+      target_market:document.getElementById('targetMarket').value,
+      niche:document.getElementById('niche').value, engagement:document.getElementById('engagementType').value,
+      profile_score:result.score+'/100', score_label:result.scoreLabel,
+      new_headline:result.newHeadline, new_about:result.newAbout,
+      biggest_asset:result.biggestAsset, biggest_gap:result.biggestGap, quick_win:result.quickWin,
+      timestamp:new Date().toLocaleString('en-GB',{timeZone:'Europe/London'})
+    });
+  } catch(e) { console.warn('Report email failed silently:',e); }
+}
+
+const msgs = ['Analysing your profile...','Extracting positioning signals...','Crafting your optimised headline...','Rewriting your About section...','Generating positioning insights...'];
+let mi=0, mint=null;
+function cycleMsg() { mi=(mi+1)%msgs.length; document.getElementById('loadingMsg').textContent=msgs[mi]; }
+
+async function runAnalysis() {
+  const headline = document.getElementById('headline').value.trim();
+  const aboutText = document.getElementById('aboutText').value.trim();
+  const rolesText = document.getElementById('rolesText').value.trim();
+  const clientsText = document.getElementById('clientsText').value.trim();
+  const skillsText = skills.join(', ');
+  const firstName = document.getElementById('firstName').value.trim();
+  const lastName  = document.getElementById('lastName').value.trim();
+  const url       = document.getElementById('linkedinUrl').value.trim();
+  const market    = document.getElementById('targetMarket').value;
+  const niche     = document.getElementById('niche').value;
+  const engage    = document.getElementById('engagementType').value;
+  const err       = document.getElementById('errPage2');
+  err.classList.remove('visible');
+
+  if (!headline) { err.textContent='Please paste your current LinkedIn headline before generating the report.'; err.classList.add('visible'); return; }
+  if (!aboutText || aboutText.length < 50) { err.textContent='Please paste your About / Summary section before generating the report.'; err.classList.add('visible'); return; }
+
+  document.getElementById('page2').style.display='none';
+  document.getElementById('loadingSection').classList.add('visible');
+  document.getElementById('generateBtn').disabled=true;
+  setProgress(3);
+  mi=0; document.getElementById('loadingMsg').textContent=msgs[0];
+  mint=setInterval(cycleMsg,2000);
+  window.scrollTo({top:0,behavior:'smooth'});
+
+  const prompt=`You are an expert LinkedIn profile strategist who helps independent consultants attract premium clients.
+
+Analyse the following LinkedIn profile content and return ONLY a valid JSON object — no markdown, no preamble, nothing outside the JSON.
+
+{
+  "score": <integer 0-100>,
+  "scoreLabel": "<2-5 word positioning label e.g. 'Practitioner Not Yet Consultant'>",
+  "scoreSummary": "<1-2 sentences on the core positioning gap>",
+  "currentHeadlineIssues": ["<issue 1>", "<issue 2>", "<issue 3>"],
+  "newHeadline": "<optimised headline max 220 chars, value-first, outcome-led, calibrated for ${market}>",
+  "newHeadlineStrengths": ["<strength 1>", "<strength 2>", "<strength 3>"],
+  "headlineRationale": "<2-3 sentences explaining why the changes work for ${market} buyers>",
+  "aboutIssues": "<1 paragraph on what is weak or missing in the current About section>",
+  "aboutIssueTags": ["<issue tag 1>", "<issue tag 2>", "<issue tag 3>"],
+  "newAbout": "<rewritten About section max 220 words, opens with client pain not biography, names buyer types like CTOs or ops leaders, weaves in credibility and named clients naturally, states ${engage} naturally, ends with strong CTA>",
+  "aboutStrengths": ["<strength 1>", "<strength 2>", "<strength 3>"],
+  "aboutRationale": "<2-3 sentences on the key structural changes made>",
+  "biggestAsset": "<2-3 sentences on their strongest differentiator based on the actual content provided>",
+  "biggestGap": "<2-3 sentences on the most important thing holding them back>",
+  "quickWin": "<2-3 sentences on the single fastest improvement they can make today>"
+}
+
+PERSON: ${firstName} ${lastName}
+LINKEDIN URL: ${url}
+TARGET MARKET: ${market}
+CONSULTING NICHE: ${niche}
+ENGAGEMENT TYPES: ${engage}
+
+CURRENT HEADLINE:
+${headline}
+
+CURRENT ABOUT SECTION:
+${aboutText}
+
+RECENT ROLES:
+${rolesText || 'Not provided'}
+
+KEY SKILLS:
+${skillsText || 'Not provided'}
+
+NOTABLE CLIENTS:
+${clientsText || 'Not provided'}
+
+SCORING RULES:
+- Score honestly. Most profiles score 35-65. Only exceed 75 if genuinely premium-positioned.
+- Penalise: generic headlines, biography-first About, no named buyer types, no outcome signals, no proof.
+- Reward: proprietary frameworks, named clients, outcome-first language, clear buyer targeting, strong CTA.
+- Base ALL analysis on the actual content provided above.
+- Return ONLY valid JSON. No text outside the JSON object.`;
+
+  try {
+    const res = await fetch('/functions/anthropic-proxy', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:4000,messages:[{role:'user',content:prompt}]})
+    });
+    const data = await res.json();
+    clearInterval(mint);
+    if (!res.ok || !data.content) throw new Error(data.error?.message||'API error');
+    let raw = data.content.map(b=>b.text||'').join('');
+    raw = raw.replace(/```json\s*/gi,'').replace(/```\s*/g,'').trim();
+    const f=raw.indexOf('{'),l=raw.lastIndexOf('}');
+    if (f===-1||l===-1) throw new Error('Could not parse the AI response. Please try again.');
+    const result = JSON.parse(raw.slice(f,l+1));
+    renderResults(result, headline);
+    sendReportEmail(result);
+  } catch(err) {
+    clearInterval(mint);
+    document.getElementById('page2').style.display='block';
+    document.getElementById('loadingSection').classList.remove('visible');
+    document.getElementById('generateBtn').disabled=false;
+    setProgress(2);
+    const errBox=document.getElementById('errPage2');
+    errBox.textContent='Something went wrong: '+err.message+'. Please try again.';
+    errBox.classList.add('visible');
+  }
+}
+
+function renderResults(r, originalHeadline) {
+  document.getElementById('loadingSection').classList.remove('visible');
+  document.getElementById('resultsSection').classList.add('visible');
+  document.getElementById('scoreNum').innerHTML=r.score+'<span>/100</span>';
+  document.getElementById('scoreLabel').textContent=r.scoreLabel;
+  document.getElementById('scoreSummary').textContent=r.scoreSummary;
+  setTimeout(()=>{document.getElementById('scoreBar').style.width=r.score+'%';},100);
+  document.getElementById('currentHeadlineDisp').textContent='"'+originalHeadline+'"';
+  document.getElementById('newHeadline').textContent='"'+r.newHeadline+'"';
+  renderTags('headlineIssues',r.currentHeadlineIssues,'tag-rem');
+  renderTags('headlineStrengths',r.newHeadlineStrengths,'tag-add');
+  document.getElementById('headlineRationale').innerHTML='<strong>Why this works:</strong> '+r.headlineRationale;
+  document.getElementById('aboutIssues').textContent=r.aboutIssues;
+  document.getElementById('newAbout').textContent=r.newAbout;
+  renderTags('aboutIssueTags',r.aboutIssueTags,'tag-rem');
+  renderTags('aboutStrengths',r.aboutStrengths,'tag-add');
+  document.getElementById('aboutRationale').innerHTML='<strong>Key changes:</strong> '+r.aboutRationale;
+  document.getElementById('assetInsight').textContent=r.biggestAsset;
+  document.getElementById('gapInsight').textContent=r.biggestGap;
+  document.getElementById('quickWinInsight').textContent=r.quickWin;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function renderTags(id,arr,cls) {
+  const el=document.getElementById(id); el.innerHTML='';
+  if (!arr) return;
+  arr.forEach(t=>{
+    const s=document.createElement('span');
+    s.className='tag '+cls;
+    s.textContent=cls==='tag-rem'?'❌ '+t:'✅ '+t;
+    el.appendChild(s);
+  });
+}
+
+function copyEl(id,btn) {
+  navigator.clipboard.writeText(document.getElementById(id).textContent).then(()=>{
+    const orig=btn.innerHTML;
+    btn.innerHTML='&#x2713; Copied!';
+    btn.style.cssText='background:var(--teal);color:#fff;border-color:var(--teal)';
+    setTimeout(()=>{btn.innerHTML=orig;btn.style.cssText='';},2000);
+  });
+}
+
+function resetAll() {
+  document.getElementById('resultsSection').classList.remove('visible');
+  document.getElementById('page1').style.display='block';
+  document.getElementById('generateBtn').disabled=false;
+  document.getElementById('scoreBar').style.width='0%';
+  skills=[];
+  renderSkills();
+  setProgress(1);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
 </script>
 </body>
 </html>
